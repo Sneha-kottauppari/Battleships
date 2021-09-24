@@ -68,7 +68,6 @@ def emptyGrid(rows, cols):
         for j in range(cols):
             list_2.append(EMPTY_UNCLICKED)
         list_1.append(list_2)
-
     return list_1
 
 '''
@@ -77,6 +76,17 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
+    row_centre= random.randint(1,8)
+    col_centre= random.randint(1,8)
+    orientation=random.randint(0,1)
+    ship_placement=[[],[],[]]
+    # print(row_centre,col_centre,orientation)
+    if orientation==0:
+        ship_placement=[[row_centre,col_centre-1],[row_centre,col_centre],[row_centre,col_centre+1]]
+    else:
+        ship_placement=[[row_centre-1,col_centre],[row_centre,col_centre],[row_centre+1,col_centre]]
+    return ship_placement
+    
     return
 
 
@@ -277,4 +287,5 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
-    test.testEmptyGrid()
+    # test.testEmptyGrid()
+    test.testCreateShip()
