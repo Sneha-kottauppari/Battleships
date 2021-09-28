@@ -96,9 +96,9 @@ Returns: bool
 '''
 def checkShip(grid, ship):
     for each in ship:
-        a = each[0]
-        b = each[1]
-        if grid[a][b]!= EMPTY_UNCLICKED:
+        index_1 = each[0]
+        index_2 = each[1]
+        if grid[index_1][index_2]!= EMPTY_UNCLICKED:
             return False
     return True
 
@@ -292,4 +292,5 @@ if __name__ == "__main__":
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
     # test.testEmptyGrid()
-    test.testCreateShip()
+    # test.testCreateShip()
+    test.testCheckShip()
