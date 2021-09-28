@@ -80,8 +80,6 @@ def createShip():
     row_centre= random.randint(1,8)
     col_centre= random.randint(1,8)
     orientation=random.randint(0,1)
-    ship_placement=[[],[],[]]
-    # print(row_centre,col_centre,orientation)
     if orientation==0:
         ship_placement=[[row_centre,col_centre-1],[row_centre,col_centre],[row_centre,col_centre+1]]
     else:
@@ -288,4 +286,5 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
-    test.testEmptyGrid()
+    # test.testEmptyGrid()
+    test.testCreateShip()
