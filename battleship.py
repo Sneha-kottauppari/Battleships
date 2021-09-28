@@ -115,10 +115,10 @@ def addShips(grid, numShips):
         ship = createShip()
         if checkShip(grid,ship) == True:
             for each in ship:
-                a = each[0]
-                b = each[1]
-                grid[a][b] = SHIP_UNCLICKED
-            count = count+1
+                index1 = each[0]
+                index2 = each[1]
+                grid[index1][index2]=SHIP_UNCLICKED
+            count=count+1
     return grid
 
 
@@ -304,4 +304,4 @@ if __name__ == "__main__":
     #  test.testEmptyGrid()
      test.testCreateShip()
     # test.testCheckShip()
-    # test.testAddShips()
+    test.testAddShips()
