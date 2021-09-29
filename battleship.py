@@ -28,7 +28,7 @@ def makeModel(data):
     data["rows"] = 10
     data["cols"] = 10
     data["board_size"] = 500
-    data["cell_size"] = (data["board_size"]/(data["cols"]))
+    data["cell_size"] = (data["board_size"]/(data["rows"]))
     data["user_ship_number"] = 5
     data["comp_ship_number"] = 5
     data["user_board"] = emptyGrid(10,10)
