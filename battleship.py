@@ -43,8 +43,9 @@ Returns: None
 def makeView(data, userCanvas, compCanvas):
     grid = emptyGrid(10, 10)
     usergrid=test.testGrid()
+    compgrid=addShips(grid,5)
     drawGrid(data,userCanvas,usergrid, True)
-    drawGrid(data,compCanvas,grid,True)
+    drawGrid(data,compCanvas,compgrid,True)
     return
 
 
