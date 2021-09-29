@@ -25,9 +25,16 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
-    return
 
-
+    data["rows"] = 10
+    data["cols"] = 10
+    data["board_size"] = 500
+    data["cell_size"] = (data["board_size"]/(data["rows"])
+    data["user_ship_number"] = 5
+    data["comp_ship_number"] = 5
+    data["user_board"] = emptyGrid(10,10)
+    data["computer_board"] = addShips(emptyGrid(10,10),5)
+    
 '''
 makeView(data, userCanvas, compCanvas)
 Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
@@ -68,10 +75,6 @@ def emptyGrid(rows, cols):
         for j in range(cols):
             list_2.append(EMPTY_UNCLICKED)
         grid_created.append(list_2)
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     return grid_created
 
 '''
@@ -83,16 +86,11 @@ def createShip():
     row_centre= random.randint(1,8)
     col_centre= random.randint(1,8)
     orientation=random.randint(0,1)
-<<<<<<< HEAD
-    # ship_placement=[[],[],[]]
-    # print(row_centre,col_centre,orientation)
-=======
->>>>>>> main
     if orientation==0:
         ship_placement=[[row_centre,col_centre-1],[row_centre,col_centre],[row_centre,col_centre+1]]
     else:
         ship_placement=[[row_centre-1,col_centre],[row_centre,col_centre],[row_centre+1,col_centre]]
-    print(ship_placement)
+    
     return ship_placement
     
 
@@ -307,4 +305,5 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    #runSimulation(500, 500)
+    # runSimulation(500, 500)
+    test.testMakeModel()
