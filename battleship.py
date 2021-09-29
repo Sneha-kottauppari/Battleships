@@ -155,7 +155,16 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isVertical(ship):
-    return
+    index1 = []
+    index2 = []
+    for each in ship:
+        index1.append(each[0])
+        index2.append(each[1])
+    if index2[0] == index2[1] and index2[1] == index2[2]:
+        if max(index1)-min(index1) <= 2:
+            return True
+    return False
+
 
 
 '''
@@ -316,5 +325,6 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    runSimulation(500, 500)
+    # runSimulation(500, 500)
     # test.testMakeModel()
+    test.testIsVertical()
