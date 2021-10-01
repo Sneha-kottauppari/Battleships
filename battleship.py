@@ -228,6 +228,14 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def placeShip(data):
+    
+    if not shipIsValid(data["user_board"], data["temp_ship"]):
+        print("Ship is not valid")
+    else:
+        for each in data["temp_ship"]:
+            data["user_board"][each[0]][each[1]] = SHIP_UNCLICKED
+        data["user_ship_number"] = data["user_ship_number"]+1
+    data["temp_ship"] = [[]]
     return
 
 
