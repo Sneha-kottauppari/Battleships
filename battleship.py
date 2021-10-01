@@ -57,6 +57,10 @@ Parameters: dict mapping strs to values ; key event object
 Returns: None
 '''
 def keyPressed(data, event):
+    row = getClickedCell(data, event)[0]
+    col = getClickedCell(data, event)[1]
+    if board == "user":
+        clickUserBoard(data,row,col)
     pass
 
 
@@ -66,6 +70,10 @@ Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
 Returns: None
 '''
 def mousePressed(data, event, board):
+    row = getClickedCell(data, event)[0]
+    col = getClickedCell(data, event)[1]
+    if board == "user":
+        clickUserBoard(data,row,col)
     pass
 
 #### WEEK 1 ####
