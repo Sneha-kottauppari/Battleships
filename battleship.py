@@ -57,10 +57,6 @@ Parameters: dict mapping strs to values ; key event object
 Returns: None
 '''
 def keyPressed(data, event):
-    row = getClickedCell(data, event)[0]
-    col = getClickedCell(data, event)[1]
-    if board == "user":
-        clickUserBoard(data,row,col)
     pass
 
 
