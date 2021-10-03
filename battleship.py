@@ -33,7 +33,7 @@ def makeModel(data):
     data["comp_ship_number"] = 5
     data["user_board"] = emptyGrid(10,10)
     data["computer_board"] = addShips(emptyGrid(10,10),5)
-    data["temp_ship"]=test.testShip()
+    data["temp_ship"]=[]
     return
     
 '''
@@ -187,7 +187,8 @@ def isHorizontal(ship):
 
 
 '''
-getClickedCell(data, event)
+
+(data, event)
 Parameters: dict mapping strs to values ; mouse event object
 Returns: list of ints
 '''
