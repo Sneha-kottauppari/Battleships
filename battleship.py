@@ -247,11 +247,12 @@ Returns: None
 def clickUserBoard(data, row, col):
     if data["user_ship_number"]== 5:
         print("you can start the game")
-    if [row,col] not in data["temp_ship"]:
-        data["temp_ship"].append([row,col])
-    if len(data["temp_ship"])==3:
-        placeShip(data)
-    
+    else:
+        if [row,col] not in data["temp_ship"]:
+            data["temp_ship"].append([row,col])
+            if len(data["temp_ship"])==3:
+                placeShip(data)
+        
     return
 
 
@@ -359,9 +360,9 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    # runSimulation(500, 500)
+    runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
     # test.testIsHorizontal()
     # test.testGetClickedCell()
-    test.testShipIsValid()
+    # test.testShipIsValid()
