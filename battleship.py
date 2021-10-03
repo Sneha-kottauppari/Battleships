@@ -235,7 +235,7 @@ def placeShip(data):
         for each in data["temp_ship"]:
             data["user_board"][each[0]][each[1]] = SHIP_UNCLICKED
         data["user_ship_number"] = data["user_ship_number"]+1
-    data["temp_ship"] = [[]]
+    data["temp_ship"] = []
     return
 
 
