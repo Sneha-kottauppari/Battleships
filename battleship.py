@@ -29,11 +29,11 @@ def makeModel(data):
     data["cols"] = 10
     data["board_size"] = 500
     data["cell_size"] = (data["board_size"]/(data["rows"]))
-    data["user_ship_number"] = 5
+    data["user_ship_number"] = 0
     data["comp_ship_number"] = 5
     data["user_board"] = emptyGrid(10,10)
-    data["computer_board"] = addShips(emptyGrid(10,10),5)
-    data["temp_ship"]=test.testShip()
+    data["computer_board"] = emptyGrid(10,10)
+    data["temp_ship"]=[]
     return
     
 '''
@@ -42,11 +42,11 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
-    grid = emptyGrid(10, 10)
+    # grid = emptyGrid(10, 10)
     # usergrid=test.testGrid()
     # compgrid=addShips(grid_new,5)
-    drawGrid(data,userCanvas,grid, True)
-    drawGrid(data,compCanvas,grid,True)
+    drawGrid(data,userCanvas,data["user_board"], True)
+    drawGrid(data,compCanvas,data["computer_board"],True)
     drawShip(data,userCanvas,data["temp_ship"])
     return
 
@@ -232,15 +232,16 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def placeShip(data):
-    
+    print("place ship ",data["temp_ship"])
     if not shipIsValid(data["user_board"], data["temp_ship"]):
         print("Ship is not valid")
     else:
         for each in data["temp_ship"]:
             data["user_board"][each[0]][each[1]] = SHIP_UNCLICKED
         data["user_ship_number"] = data["user_ship_number"]+1
-    data["temp_ship"] = [[]]
-    return
+    
+    data["temp_ship"] = []
+    # return
 
 
 '''
@@ -249,13 +250,15 @@ Parameters: dict mapping strs to values ; int ; int
 Returns: None
 '''
 def clickUserBoard(data, row, col):
+    
     if data["user_ship_number"]== 5:
         print("you can start the game")
-    if [row,col] not in data["temp_ship"]:
-        data["temp_ship"].append([row,col])
-    if len(data["temp_ship"])==3:
-        placeShip(data)
-    
+    else:
+        if [row,col] not in data["temp_ship"]:
+            data["temp_ship"].append([row,col])
+            if len(data["temp_ship"])==3:
+                placeShip(data)
+            
     return
 
 
@@ -363,9 +366,9 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    # runSimulation(500, 500)
+    runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
     # test.testIsHorizontal()
     # test.testGetClickedCell()
-    test.testShipIsValid()
+    # test.testShipIsValid()
