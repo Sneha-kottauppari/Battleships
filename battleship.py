@@ -59,7 +59,6 @@ Returns: None
 def keyPressed(data, event):
     pass
 
-
 '''
 mousePressed(data, event, board)
 Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
@@ -210,7 +209,6 @@ def drawShip(data, canvas, ship):
     for each in ship:
         # print(each[0],each[1])
         canvas.create_rectangle(data["cell_size"]*each[1],data["cell_size"]*each[0],data["cell_size"]*(each[1]+1),data["cell_size"]*(each[0]+1),fill="white")
-
     return
 
 
@@ -284,6 +282,7 @@ Parameters: dict mapping strs to values ; int ; int
 Returns: None
 '''
 def runGameTurn(data, row, col):
+    
     return
 
 
