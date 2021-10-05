@@ -307,8 +307,11 @@ Parameters: 2D list of ints
 Returns: list of ints
 '''
 def getComputerGuess(board):
-    return
-
+    while True:
+        row = random.randint(0,9)
+        col = random.randint(0,9)
+        if board[row][col] == EMPTY_UNCLICKED or board[row][col] == SHIP_UNCLICKED:
+            return [row, col]
 
 '''
 isGameOver(board)
@@ -385,10 +388,11 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-     runSimulation(500, 500)
+    #  runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
     # test.testIsHorizontal()
     # test.testGetClickedCell()
     # test.testShipIsValid()
     # test.testUpdateBoard()
+      test.testGetComputerGuess()
