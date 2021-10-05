@@ -242,7 +242,6 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def placeShip(data):
-    print("place ship ",data["temp_ship"])
     if not shipIsValid(data["user_board"], data["temp_ship"]):
         print("Ship is not valid")
     else:
@@ -298,7 +297,9 @@ def runGameTurn(data, row, col):
        return
     else:
         updateBoard(data,data["computer_board"],row,col,"user")
-
+    computer_guess=getComputerGuess(data["user_board"])
+    updateBoard(data,data["user_board"],computer_guess[0],computer_guess[1],"comp")
+    
 
 
 '''
@@ -388,11 +389,11 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    #  runSimulation(500, 500)
+     runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
     # test.testIsHorizontal()
     # test.testGetClickedCell()
     # test.testShipIsValid()
     # test.testUpdateBoard()
-      test.testGetComputerGuess()
+    #   test.testGetComputerGuess()
