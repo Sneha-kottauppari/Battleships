@@ -360,5 +360,14 @@ if __name__ == "__main__":
     # runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
+<<<<<<< HEAD
     # test.testIsHorizontal()
     test.testGetClickedCell()
+=======
+<<<<<<< HEAD
+    # test.testIsHorizontal()
+    test.testGetClickedCell()
+=======
+    # test.testIsHorizontal()
+>>>>>>> main
+>>>>>>> dc16072774f568a9fe5f09862ea92bcadb459304
