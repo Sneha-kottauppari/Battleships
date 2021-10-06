@@ -320,7 +320,12 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isGameOver(board):
-    return
+    for each in board:
+        if SHIP_UNCLICKED in each:
+            return False
+    return True
+
+    
 
 
 '''
