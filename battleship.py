@@ -216,7 +216,7 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def shipIsValid(grid, ship):
-    if checkShip(grid,ship) and isVertical(ship) or isHorizontal(ship):
+    if checkShip(grid,ship) and (isVertical(ship) or isHorizontal(ship)):
         return True
     return False
     
