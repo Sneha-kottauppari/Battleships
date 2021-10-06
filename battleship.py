@@ -160,8 +160,9 @@ def isVertical(ship):
     for each in ship:
         index1.append(each[0])
         index2.append(each[1])
+    index1.sort()
     if index2[0] == index2[1] and index2[1] == index2[2]:
-        if max(index1)-min(index1) <= 2:
+        if index1[1]-index1[0]==1 and index1[2]-index1[1]== 1:
             return True
     return False
 
