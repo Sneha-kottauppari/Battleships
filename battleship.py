@@ -357,4 +357,4 @@ if __name__ == "__main__":
     # runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
-    test.testIsHorizontal()
+    # test.testIsHorizontal()
