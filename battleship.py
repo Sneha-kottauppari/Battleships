@@ -1,6 +1,6 @@
 """
 Battleship Project
-Name:
+Name:sneha
 Roll No:
 """
 
@@ -174,7 +174,16 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isHorizontal(ship):
-    return
+    index1 = []
+    index2 = []
+    for each in ship:
+        index1.append(each[0])
+        index2.append(each[1])
+    index2.sort()
+    if index1[0] == index1[1] and index1[1] == index1[2]:
+        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
+            return True
+    return False
 
 
 '''
@@ -348,4 +357,5 @@ if __name__ == "__main__":
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
     # test.testMakeModel()
-    test.testIsVertical()
+    # test.testIsVertical()
+    # test.testIsHorizontal()
