@@ -178,8 +178,9 @@ def isHorizontal(ship):
     for each in ship:
         index1.append(each[0])
         index2.append(each[1])
+    index2.sort()
     if index1[0] == index1[1] and index1[1] == index1[2]:
-        if max(index2) - min(index2) <= 2:
+        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
             return True
     return False
 
