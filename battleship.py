@@ -43,13 +43,11 @@ Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
     grid = emptyGrid(10, 10)
-    usergrid=test.testGrid()
-    compgrid=addShips(grid,5)
-    drawGrid(data,userCanvas,usergrid, True)
-    drawGrid(data,compCanvas,compgrid,True)
+    # usergrid=test.testGrid()
+    # compgrid=addShips(grid_new,5)
+    drawGrid(data,userCanvas,grid, True)
+    drawGrid(data,compCanvas,grid,True)
     drawShip(data,userCanvas,data["temp_ship"])
-
-    
     return
 
 
@@ -164,9 +162,8 @@ def isVertical(ship):
     for each in ship:
         index1.append(each[0])
         index2.append(each[1])
-    index1.sort()
     if index2[0] == index2[1] and index2[1] == index2[2]:
-        if index1[1]-index1[0]==1 and index1[2]-index1[1]== 1:
+        if max(index1)-min(index1) <= 2:
             return True
     return False
 
@@ -183,9 +180,8 @@ def isHorizontal(ship):
     for each in ship:
         index1.append(each[0])
         index2.append(each[1])
-    index2.sort()
     if index1[0] == index1[1] and index1[1] == index1[2]:
-        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
+        if max(index2) - min(index2) <= 2:
             return True
     return False
 
@@ -220,7 +216,10 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def shipIsValid(grid, ship):
-    return
+    if checkShip(grid,ship) and (isVertical(ship) or isHorizontal(ship)):
+        return True
+    return False
+    
 
 
 '''
@@ -238,18 +237,6 @@ Parameters: dict mapping strs to values ; int ; int
 Returns: None
 '''
 def clickUserBoard(data, row, col):
-    
-    if data["user_ship_number"] == 5:
-        print("you can start the game")
-    else:
-        if [row,col] not in data["temp_ship"]:
-            data["temp_ship"].append([row,col])
-            if len(data["temp_ship"])==3:
-                placeShip(data) 
-            if data["user_ship_number"] == 5:    
-                print("you can start the game")
-
-            
     return
 
 
@@ -297,14 +284,6 @@ Parameters: dict mapping strs to values ; Tkinter canvas
 Returns: None
 '''
 def drawGameOver(data, canvas):
-    if data["winner"] == "user":
-        canvas.create_text(250,250,text="congratulations! \n you won!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
-    elif data["winner"] == "comp":
-        canvas.create_text(250, 250, text="opps!! \n you lost!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
-    elif data["winner"]== "draw":
-        canvas.create_text(250, 250, text="It's a draw \n press enter to play again", fill="black",font=('Helvetica', '30', 'bold'))
-
-
     return
 
 
@@ -365,8 +344,9 @@ def runSimulation(w, h):
 if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
-    runSimulation(500, 500)
+    # runSimulation(500, 500)
     # test.testMakeModel()
     # test.testIsVertical()
-    test.testIsHorizontal()
-    # test.testDrawShip()
+    # test.testIsHorizontal()
+    # test.testGetClickedCell()
+    test.testShipIsValid()
