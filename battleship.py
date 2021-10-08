@@ -66,12 +66,12 @@ Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
 Returns: None
 '''
 def mousePressed(data, event, board):
-    row = getClickedCell(data, event)[0]
-    col = getClickedCell(data, event)[1]
+    coord_list = getClickedCell(data, event)
+    # col = getClickedCell(data, event)[1]
     if board == "user":
-        clickUserBoard(data,row,col)
-    else:
-        runGameTurn(data,row,col)
+        clickUserBoard(data,coord_list[0],coord_list[1])
+    if board== "comp" :
+        runGameTurn(data,coord_list[0],coord_list[1])
     pass
 
 #### WEEK 1 ####
