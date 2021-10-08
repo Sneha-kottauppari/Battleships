@@ -61,6 +61,8 @@ Parameters: dict mapping strs to values ; key event object
 Returns: None
 '''
 def keyPressed(data, event):
+    if event.keycode == 13:
+        makeModel(data)
     pass
 
 
@@ -270,8 +272,8 @@ def clickUserBoard(data, row, col):
     else:
         if [row,col] not in data["temp_ship"]:
             data["temp_ship"].append([row,col])
-            if len(data["temp_ship"])==3:
-                placeShip(data)
+    if len(data["temp_ship"])==3:
+       placeShip(data)
             
     return
 
@@ -343,11 +345,11 @@ Returns: None
 '''
 def drawGameOver(data, canvas):
     if data["winner"] == "user":
-        canvas.create_text(250,250,text="congratulations! \n you won!!",fill="black",font=('Helvetica','30','bold'))
+        canvas.create_text(250,250,text="congratulations! \n you won!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
     elif data["winner"] == "comp":
-        canvas.create_text(250, 250, text="opps!! \n you lost!!",fill="black",font=('Helvetica','50','bold'))
+        canvas.create_text(250, 250, text="opps!! \n you lost!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
     elif data["winner"]== "draw":
-        canvas.create_text(250, 250, text="It's a draw", fill="black",font=('Helvetica', '30', 'bold'))
+        canvas.create_text(250, 250, text="It's a draw \n press enter to play again", fill="black",font=('Helvetica', '30', 'bold'))
     return
    
     
