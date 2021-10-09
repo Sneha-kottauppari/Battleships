@@ -66,12 +66,12 @@ Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
 Returns: None
 '''
 def mousePressed(data, event, board):
-    row = getClickedCell(data, event)[0]
-    col = getClickedCell(data, event)[1]
+    coord_list = getClickedCell(data, event)
+    # col = getClickedCell(data, event)[1]
     if board == "user":
-        clickUserBoard(data,row,col)
-    else:
-        runGameTurn(data,row,col)
+        clickUserBoard(data,coord_list[0],coord_list[1])
+    if board== "comp" :
+        runGameTurn(data,coord_list[0],coord_list[1])
     pass
 
 #### WEEK 1 ####
@@ -177,7 +177,7 @@ def isVertical(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index2[0] == index2[1] and index2[1] == index2[2]:
-        if max(index1)-min(index1) <= 2:
+        if index1[1]-index1[0]==1 and index1[2]-index1[1]==1:
             return True
     return False
 
@@ -195,7 +195,7 @@ def isHorizontal(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index1[0] == index1[1] and index1[1] == index1[2]:
-        if max(index2) - min(index2) <= 2:
+        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
             return True
     return False
 
