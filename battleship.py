@@ -289,8 +289,7 @@ def updateBoard(data, board, row, col, player):
     if board[row][col]==EMPTY_UNCLICKED:
         board[row][col]=EMPTY_CLICKED
     if isGameOver(board):
-        data["winner"]=player
-
+        data["winner"] = player
     return
 
 
@@ -349,6 +348,8 @@ def drawGameOver(data, canvas):
     elif data["winner"]== "draw":
         canvas.create_text(250, 250, text="It's a draw \n press enter to play again", fill="black",font=('Helvetica', '30', 'bold'))
     return
+   
+    
 
 
 ### SIMULATION FRAMEWORK ###
