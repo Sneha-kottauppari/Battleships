@@ -34,7 +34,7 @@ def makeModel(data):
     data["user_board"] = emptyGrid(10,10)
     data["computer_board"] = addShips(emptyGrid(data["rows"],data["cols"]),data["comp_ship_number"])
     data["temp_ship"]=[]
-    data["winner"] = None
+    data["winner"]= None
     data["max_turns"]=50
     data["current_turn"]=0
     return
@@ -70,14 +70,14 @@ Parameters: dict mapping strs to values ; mouse event object ; 2D list of ints
 Returns: None
 '''
 def mousePressed(data, event, board):
-    if data["winner"]== None :
+    if data["winner"]==None:
         row = getClickedCell(data, event)[0]
         col = getClickedCell(data, event)[1]
         if board == "user":
             clickUserBoard(data,row,col)
         else:
             runGameTurn(data,row,col)
-    pass
+        pass
 
 #### WEEK 1 ####
 
@@ -182,7 +182,7 @@ def isVertical(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index2[0] == index2[1] and index2[1] == index2[2]:
-        if max(index1)-min(index1) <= 2:
+        if index1[1]-index1[0]==1 and index1[2]-index1[1]==1:
             return True
     return False
 
@@ -200,7 +200,7 @@ def isHorizontal(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index1[0] == index1[1] and index1[1] == index1[2]:
-        if max(index2) - min(index2) <= 2:
+        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
             return True
     return False
 
@@ -305,7 +305,6 @@ def runGameTurn(data, row, col):
         updateBoard(data,data["computer_board"],row,col,"user")
     computer_guess=getComputerGuess(data["user_board"])
     updateBoard(data,data["user_board"],computer_guess[0],computer_guess[1],"comp")
-    data["current_turn"]=data["current_turn"]+1
     if data["current_turn"]==data["max_turns"]:
         data["winner"]= "draw"
 
@@ -343,11 +342,11 @@ Returns: None
 '''
 def drawGameOver(data, canvas):
     if data["winner"] == "user":
-        canvas.create_text(250,250,text="congratulations! \n you won!!",fill="black",font=('Helvetica','30','bold'))
+        canvas.create_text(250,250,text="congratulations! \n you won!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
     elif data["winner"] == "comp":
-        canvas.create_text(250, 250, text="opps!! \n you lost!!",fill="black",font=('Helvetica','50','bold'))
+        canvas.create_text(250, 250, text="opps!! \n you lost!! \n press enter to play again",fill="black",font=('Helvetica','30','bold'))
     elif data["winner"]== "draw":
-        canvas.create_text(250, 250, text="It's a draw", fill="black",font=('Helvetica', '30', 'bold'))
+        canvas.create_text(250, 250, text="It's a draw \n press enter to play again", fill="black",font=('Helvetica', '30', 'bold'))
     return
    
     
