@@ -182,7 +182,7 @@ def isVertical(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index2[0] == index2[1] and index2[1] == index2[2]:
-        if max(index1)-min(index1) <= 2:
+        if index1[1]-index1[0]==1 and index1[2]-index1[1]==1:
             return True
     return False
 
@@ -200,7 +200,7 @@ def isHorizontal(ship):
         index1.append(each[0])
         index2.append(each[1])
     if index1[0] == index1[1] and index1[1] == index1[2]:
-        if max(index2) - min(index2) <= 2:
+        if index2[1]-index2[0]==1 and index2[2]-index2[1]==1:
             return True
     return False
 
