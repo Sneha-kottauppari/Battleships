@@ -61,6 +61,8 @@ Parameters: dict mapping strs to values ; key event object
 Returns: None
 '''
 def keyPressed(data, event):
+    if event.keycode == 13:
+        makeModel(data)
     pass
 
 
@@ -270,8 +272,8 @@ def clickUserBoard(data, row, col):
     else:
         if [row,col] not in data["temp_ship"]:
             data["temp_ship"].append([row,col])
-            if len(data["temp_ship"])==3:
-                placeShip(data)
+    if len(data["temp_ship"])==3:
+       placeShip(data)
             
     return
 
